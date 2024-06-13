@@ -1,0 +1,17 @@
+{
+  "name": "todoist_tailwind_clone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "npx tailwindcss -i ./styles.css -o ./dist/styles.css --minify"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.4"
+  }
+}
