@@ -4,22 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List</title>
-    <!-- Tailwind CSS CDN -->
+    <!-- Tailwind CSS -->
     <link href="./dist/styles.css" rel="stylesheet">
-
-    <style>
-        @keyframes fadeOut {
-            from {
-                opacity: 1;
-            }
-            to {
-                opacity: 0;
-            }
-        }
-        .fade-out {
-            animation: fadeOut 0.5s forwards;
-        }
-    </style>
 </head>
 <body class="bg-zinc-900 flex justify-center items-center h-screen">
     <div class="bg-zinc-800 p-6 rounded-lg w-80 shadow-2xl">
@@ -39,13 +25,13 @@
 
             const taskList = document.getElementById('taskList');
             const taskDiv = document.createElement('div');
-			taskDiv.className = 'flex items-center bg-zinc-700 p-2 rounded-md hover:bg-gray-600 transition-all shadow-xl';
+            taskDiv.className = 'flex items-center bg-zinc-700 p-2 rounded-md hover:bg-gray-600 transition-all shadow-xl';
 
             const checkbox = document.createElement('input');
             checkbox.type = 'checkbox';
             checkbox.className = 'mr-2 animate-bounce';
             checkbox.onclick = function() {
-                taskDiv.classList.add('fade-out');
+                taskDiv.classList.add('animate-fadeOut');
                 setTimeout(() => {
                     taskDiv.remove();
                 }, 500);
@@ -64,4 +50,5 @@
     </script>
 </body>
 </html>
+
 
