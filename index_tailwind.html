@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+        .fade-out {
+            animation: fadeOut 0.5s forwards;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 flex justify-center items-center h-screen">
+    <div class="bg-gray-800 p-6 rounded-lg w-80 shadow-2xl">
+        <div id="taskList" class="space-y-2">
+            <!-- Tasks will be added here -->
+        </div>
+        <div class="flex mt-4">
+            <input type="text" id="newTask" placeholder="Add task" class="flex-grow p-2 bg-gray-700 text-white rounded-l-md border-none hover:bg-gray-600 shadow-xl">
+            <button onclick="addTask()" class="p-2 bg-red-600 text-white rounded-r-md hover:bg-red-500 animate-pulse">Add</button>
+        </div>
+    </div>
+
+    <script>
+        function addTask() {
+            const taskText = document.getElementById('newTask').value;
+            if (taskText.trim() === '') return;
+
+            const taskList = document.getElementById('taskList');
+            const taskDiv = document.createElement('div');
+			taskDiv.className = 'flex items-center bg-gray-700 p-2 rounded-md hover:bg-gray-600 transition-all shadow-xl';
+
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.className = 'mr-2 animate-bounce';
+            checkbox.onclick = function() {
+                taskDiv.classList.add('fade-out');
+                setTimeout(() => {
+                    taskDiv.remove();
+                }, 500);
+            };
+
+            const taskSpan = document.createElement('span');
+            taskSpan.textContent = taskText;
+            taskSpan.className = 'text-white flex-grow';
+
+            taskDiv.appendChild(checkbox);
+            taskDiv.appendChild(taskSpan);
+            taskList.appendChild(taskDiv);
+
+            document.getElementById('newTask').value = '';
+        }
+    </script>
+</body>
+</html>
+

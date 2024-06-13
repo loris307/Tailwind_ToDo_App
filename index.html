@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind Liste</title>
+
+</head>
+<body>
+    <div>
+        <div id="taskList">
+            <!-- Tasks werden hier hinzugefügt -->
+        </div>
+        <div>
+            <input type="text" id="newTask" placeholder="Add task">
+            <button onclick="addTask()">Add</button>
+        </div>
+    </div>
+
+    <script>
+        function addTask() {
+            const taskText = document.getElementById('newTask').value;
+            if (taskText.trim() === '') return;
+
+            const taskList = document.getElementById('taskList');
+            const taskDiv = document.createElement('div');
+            taskDiv.className = 'task';
+
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.onclick = function() {
+                taskDiv.style.display = 'none';
+            };
+
+            const taskSpan = document.createElement('span');
+            taskSpan.textContent = taskText;
+
+            taskDiv.appendChild(checkbox);
+            taskDiv.appendChild(taskSpan);
+            taskList.appendChild(taskDiv);
+
+            document.getElementById('newTask').value = '';
+        }
+    </script>
+</body>
+</html>
