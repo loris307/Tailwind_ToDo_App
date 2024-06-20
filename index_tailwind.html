@@ -12,7 +12,7 @@
         <div id="taskList" class="space-y-2">
             <!-- Tasks will be added here -->
         </div>
-        <div class="flex mt-4">
+        <div class="flex mt-6">
             <input type="text" id="newTask" placeholder="Add task" class="flex-grow p-2 bg-zinc-700 text-white rounded-l-md border-none hover:bg-gray-600 shadow-xl">
             <button onclick="addTask()" class="p-2 bg-red-600 text-white rounded-r-md hover:bg-red-500 animate-pulse">Add</button>
         </div>
@@ -25,7 +25,7 @@
 
             const taskList = document.getElementById('taskList');
             const taskDiv = document.createElement('div');
-            taskDiv.className = 'flex items-center bg-zinc-700 p-2 rounded-md hover:bg-gray-600 transition-all shadow-xl';
+            taskDiv.className = 'flex  items-center bg-zinc-700 p-2 rounded-md hover:bg-gray-600 transition-all shadow-xl';
 
             const checkbox = document.createElement('input');
             checkbox.type = 'checkbox';
